@@ -1,0 +1,26 @@
+<h1>Listing student_awards</h1>
+
+<table class="table">
+    <tr>
+      <th>Student</th>
+      <th>Award</th>
+      <th>Discipline</th>
+      <th>Reason</th>
+        <th colspan="3"></th>
+    </tr>
+
+  <%= content_tag_for(:tr, @student_awards) do |student_award| %>
+    <td><%= student_award.student %></td>
+    <td><%= student_award.award %></td>
+    <td><%= student_award.discipline %></td>
+    <td><%= student_award.reason %></td>
+      <td><%= link_to 'Show', student_award %></td>
+    <td><%= link_to 'Edit', edit_student_award_path(student_award), class: 'btn btn-edit' %></td>
+    <td><%= link_to 'Delete', student_award, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-destroy' %></td>
+  <% end %>
+</table>
+
+
+<div class="form-actions">
+  <%= link_to 'New Student award', new_student_award_path, class: 'btn btn-success' %>
+</div>

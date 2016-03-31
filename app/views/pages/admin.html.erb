@@ -1,2 +1,21 @@
-<h1>Pages#admin</h1>
-<p>Find me in app/views/pages/admin.html.erb</p>
+<h1>Admin</h1>
+<p>
+  <%= link_to 'Students', students_path %>
+  <span class="label label-pill label-default"><%= @students.count %></span>
+  <%= link_to '+', new_student_path, class: 'btn btn-primary btn-sm' %>
+</p>
+<p>
+  <%= link_to 'Awards', awards_path %>
+  <span class="label label-pill label-default"><%= @awards.count %></span>
+  <%= link_to '+', new_award_path, class: 'btn btn-primary btn-sm' %>
+</p>
+<p>
+  <%= link_to 'Disciplines', disciplines_path %>
+  <span class="label label-pill label-default"><%= @disciplines.count %></span>
+  <%= link_to '+', new_discipline_path, class: 'btn btn-primary btn-sm' %>
+</p>
+<p>
+  <%= link_to 'Student Awards', student_awards_path %>
+  <span class="label label-pill label-default"><%= @student_awards.count %></span>
+  <%= link_to '+', new_student_award_path, class: 'btn btn-primary btn-sm' %>
+</p>

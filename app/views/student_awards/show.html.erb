@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Student:</strong>
+  <%= @student_award.student %>
+</p>
+
+<p>
+  <strong>Award:</strong>
+  <%= @student_award.award %>
+</p>
+
+<p>
+  <strong>Discipline:</strong>
+  <%= @student_award.discipline %>
+</p>
+
+<p>
+  <strong>Reason:</strong>
+  <%= @student_award.reason %>
+</p>
+
+<%= link_to 'Edit', edit_student_award_path(@student_award) %> |
+<%= link_to 'Back', student_awards_path %>

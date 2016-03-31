@@ -1,2 +1,24 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<h1>Point Tracker</h1>
+<p></p>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Student</th>
+      <% @disciplines.each do |d| %>
+        <th><%= d.name %></th>
+      <% end %>
+      <th>TOTAL</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @students.each do |student| %>
+      <tr>
+        <td><%= student.name %></td>
+        <% @disciplines.each do |d| %>
+          <td><%=  %></td>
+        <% end %>
+        <td>total</td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

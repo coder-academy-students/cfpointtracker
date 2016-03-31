@@ -11,7 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160331061448) do
+ActiveRecord::Schema.define(version: 20160331214900) do
+
+  create_table "awards", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "value"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "disciplines", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false
@@ -36,6 +51,28 @@ ActiveRecord::Schema.define(version: 20160331061448) do
 
   add_index "roles", ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], name: "index_roles_on_name"
+
+  create_table "student_awards", force: :cascade do |t|
+    t.integer  "student_id"
+    t.integer  "award_id"
+    t.integer  "discipline_id"
+    t.text     "reason"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "user_id"
+  end
+
+  add_index "student_awards", ["award_id"], name: "index_student_awards_on_award_id"
+  add_index "student_awards", ["discipline_id"], name: "index_student_awards_on_discipline_id"
+  add_index "student_awards", ["student_id"], name: "index_student_awards_on_student_id"
+  add_index "student_awards", ["user_id"], name: "index_student_awards_on_user_id"
+
+  create_table "students", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "total_points"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

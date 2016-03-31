@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :student_awards
+  resources :awards
+  resources :disciplines
+  resources :students
   get 'admin', to: 'pages#admin'
   get 'contact', to: 'pages#contact'
   root 'pages#home'
