@@ -1,5 +1,7 @@
-<h1>Point Tracker</h1>
-<p><%= link_to 'Add Student Award', new_student_award_path, class: 'btn btn-primary' %></p>
+<h1>Code Master Challenge</h1>
+<% if user_signed_in? %>
+  <p><%= link_to 'Add Student Award', new_student_award_path, class: 'btn btn-primary' %></p>
+<% end %>
 <table class="table">
   <thead>
     <tr>
