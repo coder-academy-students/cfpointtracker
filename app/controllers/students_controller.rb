@@ -1,6 +1,6 @@
 class StudentsController < ApplicationController
   before_action :set_student, only: [:show, :edit, :update, :destroy]
-
+  skip_before_action :authenticate_user!, only: :show
   # GET /students
   # GET /students.json
   def index
@@ -10,6 +10,7 @@ class StudentsController < ApplicationController
   # GET /students/1
   # GET /students/1.json
   def show
+    @student_awards = @student.student_awards
   end
 
   # GET /students/new

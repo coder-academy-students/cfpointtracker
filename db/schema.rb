@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160331214900) do
+ActiveRecord::Schema.define(version: 20160403144752) do
 
   create_table "awards", force: :cascade do |t|
     t.string   "name"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20160331214900) do
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.string   "icon"
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|

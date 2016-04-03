@@ -1,14 +1,26 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
-  <%= @student.name %>
+  <strong><%= @student.name %> <span class="label label-primary"><%= @student.total_points %></span></strong>
+
 </p>
 
-<p>
-  <strong>Total points:</strong>
-  <%= @student.total_points %>
-</p>
+<table class="table">
+    <tr>
+      <th>Date</th>
+      <th>Award</th>
+      <th>Discipline</th>
+      <th>Reason</th>
+      <th>Awarded by</th>
+      <th colspan="2"></th>
+    </tr>
 
-<%= link_to 'Edit', edit_student_path(@student) %> |
-<%= link_to 'Back', students_path %>
+  <%= content_tag_for(:tr, @student_awards) do |student_award| %>
+    <td><%= student_award.created_at.strftime('%d %b %y') %></td>
+    <td><%= student_award.award.name + ' (' + student_award.award.value.to_s + ')' %></td>
+    <td><%= student_award.discipline.name %></td>
+    <td><%= student_award.reason %></td>
+    <td><%= student_award.user.email if student_award.user %></td>
+    <td><% if user_signed_in? %><% if current_user.has_role? :admin %><%= link_to 'Delete', student_award, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-destroy' %><% end %><% end %></td>
+  <% end %>
+</table>

@@ -1,23 +1,23 @@
 <h1>Point Tracker</h1>
-<p></p>
+<p><%= link_to 'Add Student Award', new_student_award_path, class: 'btn btn-primary' %></p>
 <table class="table">
   <thead>
     <tr>
       <th>Student</th>
       <% @disciplines.each do |d| %>
-        <th><%= d.name %></th>
+        <th class="text-xs-center"><i class="fa fa-<%= d.icon %>"></i> <%= d.name %></th>
       <% end %>
-      <th>TOTAL</th>
+      <th class="text-xs-center">TOTAL</th>
     </tr>
   </thead>
   <tbody>
     <% @students.each do |student| %>
       <tr>
-        <td><%= student.name %></td>
+        <td><%= link_to student.name, student %></td>
         <% @disciplines.each do |d| %>
-          <td><%=  %></td>
+          <td class="text-xs-center"><%= award_total(student, d) %></td>
         <% end %>
-        <td>total</td>
+        <td class="text-xs-center"><%= student.total_points %></td>
       </tr>
     <% end %>
   </tbody>

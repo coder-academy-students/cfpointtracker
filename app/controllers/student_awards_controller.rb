@@ -28,7 +28,7 @@ class StudentAwardsController < ApplicationController
     @student_award.user = current_user
     respond_to do |format|
       if @student_award.save
-        format.html { redirect_to @student_award, notice: 'Student award was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Student award was successfully created.' }
         format.json { render :show, status: :created, location: @student_award }
       else
         format.html { render :new }

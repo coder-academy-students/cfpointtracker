@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
+  skip_before_action :authenticate_user!, except: :admin
   def home
-    @students = Student.all.includes(:student_awards)
+    @students = Student.ordered_by_points.includes(:student_awards)
     @disciplines = Discipline.alphabetical
   end
 

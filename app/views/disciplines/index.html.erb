@@ -3,13 +3,13 @@
 <table class="table">
     <tr>
       <th>Name</th>
-      <th>Description</th>
+      <th>Icon</th>
         <th colspan="3"></th>
     </tr>
 
   <%= content_tag_for(:tr, @disciplines) do |discipline| %>
     <td><%= discipline.name %></td>
-    <td><%= discipline.description %></td>
+    <td><i class="fa fa-<%= discipline.icon %>"></i></td>
       <td><%= link_to 'Show', discipline %></td>
     <td><%= link_to 'Edit', edit_discipline_path(discipline), class: 'btn btn-edit' %></td>
     <td><%= link_to 'Delete', discipline, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-destroy' %></td>
